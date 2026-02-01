@@ -4,89 +4,314 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kanika | Software Developer</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0f172a;--card:#111827;--txt:#e5e7eb;--muted:#9ca3af;--accent:#38bdf8;
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --border: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(120deg,#020617,#020617 60%,#020617);color:var(--txt)}
-    a{color:var(--accent);text-decoration:none}
-    header{padding:72px 20px;max-width:1100px;margin:auto}
-    .hero{display:grid;gap:18px}
-    .badge{display:inline-block;background:#020617;border:1px solid #1f2937;color:#93c5fd;padding:6px 10px;border-radius:999px;width:max-content}
-    h1{font-size:clamp(28px,4vw,48px);line-height:1.1;margin:0}
-    p{color:var(--muted);max-width:720px}
-    .cta{display:flex;gap:12px;margin-top:10px}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid #1f2937;background:#020617;color:#e5e7eb}
-    .btn.primary{background:linear-gradient(135deg,#38bdf8,#22d3ee);border:none;color:#020617;font-weight:600}
 
-    main{max-width:1100px;margin:auto;padding:20px;display:grid;gap:28px}
-    section{background:rgba(2,6,23,.7);border:1px solid #1f2937;border-radius:16px;padding:22px}
-    h2{margin:0 0 14px 0}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:#020617;border:1px solid #1f2937;border-radius:14px;padding:16px}
-    .tag{display:inline-block;font-size:12px;color:#93c5fd;border:1px solid #1f2937;padding:4px 8px;border-radius:999px;margin:4px 6px 0 0}
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: radial-gradient(circle at top, #020617, #000);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-    footer{max-width:1100px;margin:30px auto;padding:20px;color:#9ca3af;text-align:center}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 20px 60px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 22px;
+    }
+
+    .badge {
+      display: inline-block;
+      width: max-content;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid var(--border);
+      color: #93c5fd;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #38bdf8, #22d3ee);
+      color: #020617;
+      border: none;
+      font-weight: 600;
+    }
+
+    /* ---------- MAIN ---------- */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      gap: 36px;
+    }
+
+    section {
+      background: rgba(2, 6, 23, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .tag {
+      display: inline-block;
+      margin: 6px 8px 0 0;
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: #93c5fd;
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      max-width: 1100px;
+      margin: 40px auto 20px;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="hero">
-      <span class="badge">Final Year • BSc Computer Science</span>
-      <h1>Hi, I’m Kanika 👋<br/>Aspiring Software Developer</h1>
-      <p>I build clean, user‑focused web applications. I enjoy turning ideas into practical solutions using HTML, CSS, JavaScript, PHP and C/C++. Currently focused on full‑stack development and interview prep.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View Projects</a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">Kanika.dev</div>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <main>
-    <section id="skills">
-      <h2>Skills</h2>
+<!-- HERO -->
+<header>
+  <div class="hero">
+    <span class="badge">Final Year • BSc Computer Science</span>
+    <h1>Hi, I’m Kanika <br>Aspiring Software Developer</h1>
+    <p>
+      I build clean, user-focused web applications and enjoy converting ideas into
+      practical solutions using HTML, CSS, JavaScript, PHP, and C/C++.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn" href="#contact">Contact Me</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <span class="tag">HTML</span>
+    <span class="tag">CSS</span>
+    <span class="tag">JavaScript</span>
+    <span class="tag">PHP</span>
+    <span class="tag">C</span>
+    <span class="tag">C++</span>
+    <span class="tag">DBMS</span>
+    <span class="tag">DSA (Basics)</span>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+
       <div class="card">
-        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">DBMS</span><span class="tag">DSA (Basics)</span>
+        <h3>Placement & Internship Management System</h3>
+        <p>
+          Role-based web system to manage students, companies, job postings and applications.
+        </p>
       </div>
-    </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Placement & Internship Management System</h3>
-          <p class="muted">A real-world web system to manage students, companies, job postings and applications with role-based access.</p>
-          <div><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
-        </div>
-        <div class="card">
-          <h3>Employee Leave Management System</h3>
-          <p class="muted">Corporate-style workflow system for applying, approving and tracking employee leaves.</p>
-          <div><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Auth</span></div>
-        </div>
-        <div class="card">
-          <h3>Expense Tracker Application</h3>
-          <p class="muted">Personal finance tracker with category-wise expense tracking and monthly summaries.</p>
-          <div><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
-        </div>
+      <div class="card">
+        <h3>Employee Leave Management System</h3>
+        <p>
+          Corporate workflow system for leave requests, approvals, and tracking.
+        </p>
       </div>
-    </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m a creative and analytical CS student from Punjab. I enjoy learning by building projects and improving step‑by‑step.</p>
-    </section>
+      <div class="card">
+        <h3>Expense Tracker Application</h3>
+        <p>
+          Personal finance tracker with category-wise expense analysis.
+        </p>
+      </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:kanikasingla578@gmail.com">Kanika</a></p>
-      <p>GitHub: <a href="https://github.com/KanikaBuilds">github.com/kanikaBuilds</a> • LinkedIn: <a href="https://www.linkedin.com/in/viewkanika">linkedin.com/in/Kanika</a></p>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    © 2026 Kanika 
-  </footer>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a creative and analytical computer science student from Punjab who believes
+      in learning by building real-world projects.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:kanikasingla578@gmail.com">kanikasingla578@gmail.com</a></p>
+    <p>
+      GitHub: <a href="https://github.com/KanikaBuilds">KanikaBuilds</a> •
+      LinkedIn: <a href="https://www.linkedin.com/in/viewkanika">viewkanika</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Kanika 
+</footer>
+
 </body>
 </html>
